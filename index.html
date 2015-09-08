@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Long Polling</h1>
+    <div class="content"></div>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+    $(function() {
+        (function poll() {
+            setTimeout(function() {
+                $.ajax({ url: "//localhost:8080/lp", success: function(data) {
+                    console.log(data);
+                    msg = $("<p></p>").text(data);
+                    $(".content").append(msg);
+                }, complete: poll });
+            }, 5);
+        })();
+    });
+    </script>
+</body>
+</html>
