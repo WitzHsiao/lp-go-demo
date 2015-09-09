@@ -24,7 +24,7 @@ func pushHandler(w http.ResponseWriter, r *http.Request) {
 		Name:    r.FormValue("Name"),
 		Content: r.FormValue("Content"),
 	}
-	fmt.Fprintf(w, "send success")
+	fmt.Println("send success")
 }
 
 func main() {
